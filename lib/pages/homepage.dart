@@ -29,20 +29,25 @@ class _MyHomePageState extends State<MyHomePage> {
     hasStarted = true;
     Timer.periodic(const Duration(milliseconds: 10), (timer) {
       setState(() {
-        bally = bally - 0.01;
+        bally = bally + 0.001;
       });
     });
   }
 
   void moveLeft() {
     setState(() {
-      playerx -= 0.01;
+      if(!(playerx-0.02<=-1.0)) {
+        playerx -= 0.02;
+      }
     });
   }
 
   void moveRight() {
     setState(() {
-      playerx += 0.01;
+      if(!(playerx+0.02>=1.0)) {
+        playerx += 0.02;
+      }
+
     });
   }
 
